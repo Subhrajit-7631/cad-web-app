@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet CAD Designer - AI-Powered</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🪵 Cabinet CAD Designer</h1>
+            <p>Design wooden cabinets using natural language prompts</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel - Controls -->
+            <aside class="control-panel">
+                <div class="prompt-section">
+                    <h2>Design Prompt</h2>
+                    <textarea 
+                        id="promptInput" 
+                        placeholder="Example: Create a 48 inch wide kitchen cabinet with 3 shelves, 2 doors, and oak wood finish"
+                        rows="4"
+                    ></textarea>
+                    <button id="generateBtn" class="btn-primary">Generate Cabinet</button>
+                </div>
+
+                <div class="examples-section">
+                    <h3>Example Prompts:</h3>
+                    <ul>
+                        <li class="example-prompt">Kitchen cabinet 36" wide, 30" tall, 24" deep, oak finish</li>
+                        <li class="example-prompt">Tall bookshelf cabinet 72" high, walnut wood, 5 shelves</li>
+                        <li class="example-prompt">Bathroom vanity 48" wide, white painted finish, 2 drawers</li>
+                        <li class="example-prompt">Display cabinet 40" wide, glass doors, cherry wood</li>
+                    </ul>
+                </div>
+
+                <div class="properties-section">
+                    <h3>Current Design</h3>
+                    <div id="propertiesDisplay">
+                        <p class="no-design">No design loaded. Enter a prompt above to get started.</p>
+                    </div>
+                </div>
+
+                <div class="actions-section">
+                    <h3>Actions</h3>
+                    <button id="exportBtn" class="btn-secondary" disabled>Export Design</button>
+                    <button id="clearBtn" class="btn-secondary">Clear Scene</button>
+                    <button id="toggleGridBtn" class="btn-secondary">Toggle Grid</button>
+                    <button id="toggleMeasurementsBtn" class="btn-secondary">Toggle Measurements</button>
+                </div>
+            </aside>
+
+            <!-- Right Panel - 3D Viewport -->
+            <main class="viewport">
+                <div id="canvas-container"></div>
+                <div class="viewport-controls">
+                    <button id="resetViewBtn" class="btn-icon" title="Reset View">🔄</button>
+                    <button id="topViewBtn" class="btn-icon" title="Top View">⬆️</button>
+                    <button id="frontViewBtn" class="btn-icon" title="Front View">➡️</button>
+                    <button id="sideViewBtn" class="btn-icon" title="Side View">↗️</button>
+                </div>
+                <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Generating cabinet...</p>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Use mouse to rotate (left click), pan (right click), and zoom (scroll)</p>
+        </footer>
+    </div>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="cabinetGenerator.js"></script>
+    <script src="promptParser.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
